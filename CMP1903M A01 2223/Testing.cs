@@ -13,6 +13,10 @@ namespace CMP1903M_A01_2223
     {
         //This is the only public method in this class the rest are private so that means they can only be called through here
         //From here the Menu method is called
+        public Testing()
+        {
+            StartTest();
+        }
         public void StartTest() 
         {
             Pack pack = new Pack();
@@ -121,6 +125,7 @@ namespace CMP1903M_A01_2223
                 Console.WriteLine("2. Test the deal method");
                 Console.WriteLine("3. Test the dealCard method");
                 Console.WriteLine("4. Quit");
+                Console.WriteLine("5. Reset pack of cards");
                 Console.WriteLine("");
                 choice = Console.ReadLine();
                 Console.WriteLine("");
@@ -141,6 +146,10 @@ namespace CMP1903M_A01_2223
                 {
                     Console.WriteLine("Quitting testing");
                     break;
+                }
+                else if (choice == "5")
+                {
+                    Pack pack = new Pack();
                 }
                 else
                 {

@@ -13,7 +13,7 @@ namespace CMP1903M_A01_2223
 
             Console.WriteLine("Running program");
             Testing test = new Testing();
-            test.StartTest();
+
             Console.WriteLine("Program done, press enter to quit");
             Console.ReadLine();
         }

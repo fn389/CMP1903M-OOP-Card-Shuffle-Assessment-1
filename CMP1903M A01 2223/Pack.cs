@@ -59,24 +59,52 @@ namespace CMP1903M_A01_2223
         //This method deals a card from the top of the pack and returns the value of the Card variable.
         public static Card deal() 
         {
+            int cardDealLimit = Pack.pack.Count();
+            bool cardLimitReached = false;
             int topOfPack = Pack.pack.Count() - 1;
             Card tempCard = Pack.pack[topOfPack];
-            Pack.pack.Remove(tempCard);
+            if (cardDealLimit <= 1)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("No more cards to deal");
+                Console.WriteLine("Quitting dealCard method");
+                Console.WriteLine("");
+                cardLimitReached = true;
+                return tempCard;
+            }
+            if (cardLimitReached == false)
+            {
+                Pack.pack.Remove(tempCard);
+                return tempCard;
+                //Deals one card
+            }
             return tempCard;
-            //Deals one card
-
         }
 
         //This method takes an int value and deals that amount of cards from the top of the deck.
         //The return value this time is the actual deck.
         public static List<Card> dealCard(int amount) 
         {
-            for (int x = 0; x <= amount; x++)
+            int cardDealLimit = Pack.pack.Count();
+            bool cardLimitReached = false;
+            if (amount >= cardDealLimit)
             {
-                int topOfPack = Pack.pack.Count() - 1;
-                Card tempCard = Pack.pack[topOfPack];
-                Pack.pack.Remove(tempCard);
+                Console.WriteLine("");
+                Console.WriteLine("Sorry but that value is too high");
+                Console.WriteLine("Quitting dealCard method");
+                Console.WriteLine("");
+                cardLimitReached = true;
             }
+            if (cardLimitReached == false)
+            {
+                for (int x = 0; x <= amount; x++)
+                {
+                    int topOfPack = Pack.pack.Count() - 1;
+                    Card tempCard = Pack.pack[topOfPack];
+                    Pack.pack.Remove(tempCard);
+                }
+            }
+            
             return Pack.pack;
             //Deals the number of cards specified by 'amount'
         }
